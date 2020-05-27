@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<Identity correlated="true"  name="Thomas.Martinez" needsRefresh="true" password="1:ACP:rGXkxv1iwmk39ZdawiZYUBl8KcvnjwPdfHy5bV26pug=">
-  <Attributes>
-    <Map>
-      <entry key="displayName" value="Thomas.Martinez"/>
-    </Map>
-  </Attributes>
-  <Links>
-    <Link displayName="Thomas.Martinez" identity="1a2a3a4c" lastRefresh="1587543896822">
-      <ApplicationRef>
-        <Reference class="sailpoint.object.Application" name="Contractor Feed"/>
-      </ApplicationRef>
-      <Attributes>
-        <Map>
-          <entry key="costcenter">
-            <value>
-              <List>
-                <String>R03e</String>
-                <String>L07e</String>
-              </List>
-            </value>
-          </entry>
-        
-          <entry key="email" value="Thomas.Martinez@demoexample.com"/>
-        
-          <entry key="firstName" value="Thomas"/>
-          <entry key="fullName" value="Thomas.Mart"/>
-          <entry key="inactiveIdentity" value="FALSE"/>
-          <entry key="lastName" value="Martinez"/>
-        
-          <
-        </Map>
-      </Attributes>
-    </Link>
-  </Links>
+<Identity correlated="true" name="Thomas.Martinez"
+	needsRefresh="true" password="1:ACP:rGXkxv1iwmk39ZdawiZYUBl8KcvnjwPdfHy5bV26pug=">
+	<Attributes>
+		<Map>
+			<entry key="displayName" value="Thomas.Martinez" />
+		</Map>
+	</Attributes>
+	<Links>
+		<Link displayName="Thomas.Martinez" identity="1a2a3a4c"
+			lastRefresh="1587543896822">
+			<ApplicationRef>
+				<Reference class="sailpoint.object.Application" name="Contractor Feed" />
+			</ApplicationRef>
+			<Attributes>
+				<Map>
+					<entry key="costcenter">
+						<value>
+							<List>
+								<String>R03e</String>
+								<String>L07e</String>
+							</List>
+						</value>
+					</entry>
+
+					<entry key="email" value="Thomas.Martinez@demoexample.com" />
+
+					<entry key="firstName" value="Thomas" />
+					<entry key="fullName" value="Thomas.Mart" />
+					<entry key="inactiveIdentity" value="FALSE" />
+					<entry key="lastName" value="Martinez" />
+
+					<
+				</Map>
+			</Attributes>
+		</Link>
+	</Links>
 </Identity>

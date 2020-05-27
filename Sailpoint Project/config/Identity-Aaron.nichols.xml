@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
-<Identity name="Adam.Kennedy" password="1:ACP:IiCLXk4E7ZXPWyqZlZJKlDLS6AYVvOFKPY7xir95zOc=">
-  <Attributes>
-    <Map>
-      <entry key="displayName" value="Adam.Kennedy"/>
-      <entry key="email" value="Aaaron.Nicholeews@example.com"/>
-    </Map>
-  </Attributes>
-  <Manager>
-    <Reference class="sailpoint.object.Identity" name="spadmin"/>
-  </Manager>
- 
+<Identity name="Adam.Kennedy"
+	password="1:ACP:IiCLXk4E7ZXPWyqZlZJKlDLS6AYVvOFKPY7xir95zOc=">
+	<Attributes>
+		<Map>
+			<entry key="displayName" value="Adam.Kennedy" />
+			<entry key="email" value="Aaaron.Nicholeews@example.com" />
+		</Map>
+	</Attributes>
+	<Manager>
+		<Reference class="sailpoint.object.Identity" name="spadmin" />
+	</Manager>
+
 </Identity>

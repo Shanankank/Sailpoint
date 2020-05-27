@@ -1,40 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Rule language="beanshell" name="Application Builder">
-  <Description>
-    A rule to build and manipulate IdentityIQ application in a bulk.
-    All duties are mentioned below.
-    1. When create mode is selected, then it creates multiple application in a bulk by parsing csv file.
-    2. When update mode is selected, then it updates the attribute map of existing application by parsing input csv file.
-    3. When read mode is selected, then it reads all existing IdentityIQ application and export them to csv file.
-       Exports considers only attributes of the application.
-  </Description>
-  <Signature returnType="TaskResult">
-    <Inputs>
-      <Argument name="context">
-        <Description>
-          A sailpoint.api.SailPointContext object that can be used to
-          query the database to save application object and task definitions.
-        </Description>
-      </Argument>
-      <Argument name="log">
-        <Description>
-          The log object for logging.
-        </Description>
-      </Argument>
-      <Argument name="inputParams">
-        <Description>
-          The input params object is map of attributes received from Task UI.
-        </Description>
-      </Argument>
-      <Argument name="taskResult">
-        <Description>
-          The task result object required for updating the result.
-        </Description>
-      </Argument>
-    </Inputs>
-  </Signature>
-  <Source><![CDATA[
+	<Description>
+		A rule to build and manipulate IdentityIQ application in a bulk.
+		All duties are mentioned below.
+		1. When create mode is selected, then it creates multiple application in
+		a bulk by parsing csv file.
+		2. When update mode is selected, then it updates the attribute map of
+		existing application by parsing input csv file.
+		3. When read mode is selected, then it reads all existing IdentityIQ
+		application and export them to csv file.
+		Exports considers only attributes of the application.
+	</Description>
+	<Signature returnType="TaskResult">
+		<Inputs>
+			<Argument name="context">
+				<Description>
+					A sailpoint.api.SailPointContext object that can be used to
+					query the database to save application object and task definitions.
+				</Description>
+			</Argument>
+			<Argument name="log">
+				<Description>
+					The log object for logging.
+				</Description>
+			</Argument>
+			<Argument name="inputParams">
+				<Description>
+					The input params object is map of attributes received from Task UI.
+				</Description>
+			</Argument>
+			<Argument name="taskResult">
+				<Description>
+					The task result object required for updating the result.
+				</Description>
+			</Argument>
+		</Inputs>
+	</Signature>
+	<Source><![CDATA[
     
       import java.io.BufferedReader;
       import java.io.FileNotFoundException;

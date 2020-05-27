@@ -4,44 +4,46 @@
 
 <sailpoint>
 
-<TaskDefinition executor="sailpoint.custom.task.SearchIdentityTask” name="Search Identity Custom Task" progressInterval="5000" progressMode="String" resultAction="Rename" template="true" type="Generic">
+	<TaskDefinition executor="sailpoint.custom.task.SearchIdentityTask” name="
+		Search Identity Custom Task " progressInterval="5000" progressMode="String"
+		resultAction="Rename" template="true" type="Generic">
 
-                <Description>
+		<Description>
 
-                                Runs a search for an identity against a specific First Name.
+			Runs a search for an identity against a specific First Name.
 
-                </Description>
+		</Description>
 
-                <Signature>
+		<Signature>
 
-                <Inputs>
+			<Inputs>
 
-                                <Argument name="search_name" type="string">
+				<Argument name="search_name" type="string">
 
-                                <Prompt>Search Identity Name:</Prompt>
+					<Prompt>Search Identity Name:</Prompt>
 
-                                </Argument>
+				</Argument>
 
-                </Inputs>
+			</Inputs>
 
-                <Returns>
+			<Returns>
 
-                                <Argument name="success" type="boolean">
+				<Argument name="success" type="boolean">
 
-                                                <Prompt>Success: </Prompt>
+					<Prompt>Success: </Prompt>
 
-                                </Argument>
+				</Argument>
 
-                                <Argument name="messages" type="string">
+				<Argument name="messages" type="string">
 
-                                                <Prompt>Messages: </Prompt>
+					<Prompt>Messages: </Prompt>
 
-                                </Argument>
+				</Argument>
 
-                                </Returns>
+			</Returns>
 
-                </Signature>
+		</Signature>
 
-</TaskDefinition>
+	</TaskDefinition>
 
 </sailpoint>
