@@ -18,6 +18,10 @@ serilog.debug("operation="+operation);
 			<Script>
 				<Source><![CDATA[return "Import".equals(operation);]]></Source>
 			</Script>
+			
+			<Script>
+				<Source><![CDATA[return "Import".equals(operation);]]></Source>
+			</Script>
 		</Transition>
 		<Transition to="Get Object Types">
 			<Script>
