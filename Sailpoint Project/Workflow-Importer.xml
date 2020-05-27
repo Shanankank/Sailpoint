@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Workflow PUBLIC "sailpoint.dtd" "sailpoint.dtd">
 <Workflow explicitTransitions="true" name="Importer" type="">
-  <Variable name="result" output="true"/>
-  <Variable name="transient" initializer="true"/>
-  <Variable input="true" name="resource"/>
-  <Variable input="true" name="operation"/>
-  <Variable name="payload" type="java.lang.Object" output="true"/>
-  <Step icon="Start" name="Start" posX="67" posY="354">
-    <Script>
-      <Source><![CDATA[
+	<Variable name="result" output="true" />
+	<Variable name="transient" initializer="true" />
+	<Variable input="true" name="resource" />
+	<Variable input="true" name="operation" />
+	<Variable name="payload" type="java.lang.Object" output="true" />
+	<Step icon="Start" name="Start" posX="67" posY="354">
+		<Script>
+			<Source><![CDATA[
 serilog=org.apache.commons.logging.LogFactory.getLog("sailpoint.iiqda.Importer");
 serilog.debug("operation="+operation);
 
 	  ]]></Source>
-    </Script>
-    <Transition to="Import">
-      <Script>
-        <Source><![CDATA[return "Import".equals(operation);]]></Source>
-      </Script>
-    </Transition>
-    <Transition to="Get Object Types">
-      <Script>
-        <Source><![CDATA[return "getObjectTypes".equals(operation);]]></Source>
-      </Script>
-    </Transition>
-    <Transition to="Get Objects" when="&quot;getObjects&quot;.equals(operation);"/>
-    <Transition to="Get Latest Objects" when="&quot;getLatestObjects&quot;.equals(operation);"/>
-    <Transition to="Get Object" when="&quot;getObject&quot;.equals(operation);"/>
-    <Transition to="Get Jar Size" when="&quot;jarSize&quot;.equals(operation);"/>
-    <Transition to="Get Jar Data" when="&quot;jarData&quot;.equals(operation);"/>
-    <Transition to="Get Task List" when="&quot;getTaskList&quot;.equals(operation);"/>
-    <Transition to="Run Task" when="&quot;runTask&quot;.equals(operation);"/>
-    <Transition to="Terminate Task" when="&quot;terminateTask&quot;.equals(operation);"/>
-    <Transition to="Get Task Result" when="&quot;getTaskResult&quot;.equals(operation);"/>
-    <Transition to="Invalid operation"/>
-  </Step>
-  <Step icon="Provision" name="Import" posX="352" posY="121" resultVariable="payload">
-    <Script>
-      <Source><![CDATA[
+		</Script>
+		<Transition to="Import">
+			<Script>
+				<Source><![CDATA[return "Import".equals(operation);]]></Source>
+			</Script>
+		</Transition>
+		<Transition to="Get Object Types">
+			<Script>
+				<Source><![CDATA[return "getObjectTypes".equals(operation);]]></Source>
+			</Script>
+		</Transition>
+		<Transition to="Get Objects" when="&quot;getObjects&quot;.equals(operation);" />
+		<Transition to="Get Latest Objects"
+			when="&quot;getLatestObjects&quot;.equals(operation);" />
+		<Transition to="Get Object" when="&quot;getObject&quot;.equals(operation);" />
+		<Transition to="Get Jar Size" when="&quot;jarSize&quot;.equals(operation);" />
+		<Transition to="Get Jar Data" when="&quot;jarData&quot;.equals(operation);" />
+		<Transition to="Get Task List" when="&quot;getTaskList&quot;.equals(operation);" />
+		<Transition to="Run Task" when="&quot;runTask&quot;.equals(operation);" />
+		<Transition to="Terminate Task"
+			when="&quot;terminateTask&quot;.equals(operation);" />
+		<Transition to="Get Task Result"
+			when="&quot;getTaskResult&quot;.equals(operation);" />
+		<Transition to="Invalid operation" />
+	</Step>
+	<Step icon="Provision" name="Import" posX="352" posY="121"
+		resultVariable="payload">
+		<Script>
+			<Source><![CDATA[
 import sailpoint.server.Importer;
 import sailpoint.tools.GeneralException;
 import sailpoint.web.system.ImportBean.ImportMonitor;
@@ -67,12 +71,13 @@ try {
 }
 return "";
       ]]></Source>
-    </Script>
-    <Transition to="Stop"/>
-  </Step>
-  <Step icon="Default" name="Get Object Types" posX="354" posY="194" resultVariable="payload">
-    <Script>
-      <Source><![CDATA[
+		</Script>
+		<Transition to="Stop" />
+	</Step>
+	<Step icon="Default" name="Get Object Types" posX="354" posY="194"
+		resultVariable="payload">
+		<Script>
+			<Source><![CDATA[
 import sailpoint.object.ClassLists;
 
 List l = new ArrayList();
@@ -87,22 +92,24 @@ Collections.sort(l);
 workflow.put("result", "success");
 return l;
       ]]></Source>
-    </Script>
-    <Transition to="Stop"/>
-  </Step>
-  <Step icon="Default" name="Invalid operation" posX="354" posY="44" resultVariable="payload">
-    <Script>
-      <Source><![CDATA[
+		</Script>
+		<Transition to="Stop" />
+	</Step>
+	<Step icon="Default" name="Invalid operation" posX="354" posY="44"
+		resultVariable="payload">
+		<Script>
+			<Source><![CDATA[
 workflow.put("result", "failure");
 return "Invalid Operation";
       ]]></Source>
-    </Script>
-    <Transition to="Stop"/>
-  </Step>
-  <Step icon="Stop" name="Stop" posX="509" posY="351"/>
-  <Step icon="Default" name="Get Objects" posX="355" posY="272" resultVariable="payload">
-    <Script>
-      <Source><![CDATA[
+		</Script>
+		<Transition to="Stop" />
+	</Step>
+	<Step icon="Stop" name="Stop" posX="509" posY="351" />
+	<Step icon="Default" name="Get Objects" posX="355" posY="272"
+		resultVariable="payload">
+		<Script>
+			<Source><![CDATA[
 // objectType is a 'simple' class name (no package)
 // look it up in ClassList
 
@@ -151,12 +158,13 @@ while(iter.hasNext()) {
 workflow.put("result", "success");
 return objects;
       ]]></Source>
-    </Script>
-    <Transition to="Stop"/>
-  </Step>
-  <Step icon="Default" name="Get Task List" posX="355" posY="272" resultVariable="payload">
-    <Script>
-      <Source><![CDATA[
+		</Script>
+		<Transition to="Stop" />
+	</Step>
+	<Step icon="Default" name="Get Task List" posX="355" posY="272"
+		resultVariable="payload">
+		<Script>
+			<Source><![CDATA[
 import sailpoint.object.TaskDefinition;
 
 serilog=org.apache.commons.logging.LogFactory.getLog("sailpoint.iiqda.Importer.GetTaskList");
@@ -172,12 +180,13 @@ workflow.put("result", "success");
 serilog.debug("returning "+objects.size()+" tasks");
 return objects;
       ]]></Source>
-    </Script>
-    <Transition to="Stop"/>
-  </Step>
-  <Step icon="Default" name="Run Task" posX="355" posY="272" resultVariable="payload">
-    <Script>
-      <Source><![CDATA[
+		</Script>
+		<Transition to="Stop" />
+	</Step>
+	<Step icon="Default" name="Run Task" posX="355" posY="272"
+		resultVariable="payload">
+		<Script>
+			<Source><![CDATA[
 import sailpoint.object.TaskDefinition;
 import sailpoint.api.TaskManager;
 import sailpoint.object.TaskSchedule;
@@ -206,12 +215,13 @@ while (tr==null) {
 workflow.put("result", "success");
 return tr.getId();
       ]]></Source>
-    </Script>
-    <Transition to="Stop"/>
-  </Step>
-   <Step icon="Default" name="Terminate Task" posX="355" posY="272" resultVariable="payload">
-    <Script>
-      <Source><![CDATA[
+		</Script>
+		<Transition to="Stop" />
+	</Step>
+	<Step icon="Default" name="Terminate Task" posX="355" posY="272"
+		resultVariable="payload">
+		<Script>
+			<Source><![CDATA[
 import sailpoint.api.TaskManager;
 import sailpoint.object.TaskResult;
 
@@ -232,12 +242,13 @@ tm.terminate(tr);
 workflow.put("result", "success");
 return tr.getId();
       ]]></Source>
-    </Script>
-    <Transition to="Stop"/>
-  </Step>
-  <Step icon="Default" name="Get Task Result" posX="355" posY="272" resultVariable="payload">
-    <Script>
-      <Source><![CDATA[
+		</Script>
+		<Transition to="Stop" />
+	</Step>
+	<Step icon="Default" name="Get Task Result" posX="355" posY="272"
+		resultVariable="payload">
+		<Script>
+			<Source><![CDATA[
 import sailpoint.object.Attributes;
 import sailpoint.object.TaskResult;
 import sailpoint.tools.Internationalizer;
@@ -292,12 +303,13 @@ if (attrs!=null) {
 workflow.put("result", "success");
 return result;
       ]]></Source>
-    </Script>
-    <Transition to="Stop"/>
-  </Step>
-  <Step icon="Default" name="Get Object" posX="353" posY="350" resultVariable="payload">
-    <Script>
-      <Source><![CDATA[
+		</Script>
+		<Transition to="Stop" />
+	</Step>
+	<Step icon="Default" name="Get Object" posX="353" posY="350"
+		resultVariable="payload">
+		<Script>
+			<Source><![CDATA[
 // objectType is a 'simple' class name (no package)
 // look it up in ClassList
 
@@ -340,12 +352,13 @@ serilog.debug("obj="+obj);
 workflow.put("result", "success");
 return obj.toXml();
       ]]></Source>
-    </Script>
-    <Transition to="Stop"/>
-  </Step>
-  <Step icon="Default" name="Get Jar Size" posX="356" posY="434" resultVariable="payload">
-    <Script>
-      <Source><![CDATA[
+		</Script>
+		<Transition to="Stop" />
+	</Step>
+	<Step icon="Default" name="Get Jar Size" posX="356" posY="434"
+		resultVariable="payload">
+		<Script>
+			<Source><![CDATA[
 // jarName is the name of a jar in WEB-INF/lib
 // return a JSON string of the binary
 
@@ -381,12 +394,13 @@ String ret=Long.toString(file.length());
 serilog.debug("returning "+ret);
 return ret
       ]]></Source>
-    </Script>
-    <Transition to="Stop"/>
-  </Step>
-  <Step icon="Default" name="Get Jar Data" posX="356" posY="515" resultVariable="payload">
-    <Script>
-      <Source><![CDATA[
+		</Script>
+		<Transition to="Stop" />
+	</Step>
+	<Step icon="Default" name="Get Jar Data" posX="356" posY="515"
+		resultVariable="payload">
+		<Script>
+			<Source><![CDATA[
 // jarName is the name of a jar in WEB-INF/lib
 // return a JSON string of the binary
 
@@ -441,12 +455,13 @@ workflow.put("result", "success");
 serilog.trace("returning "+out);
 return out;
       ]]></Source>
-    </Script>
-    <Transition to="Stop"/>
-  </Step>
-  <Step icon="Default" name="Get Latest Objects" posX="360" posY="599" resultVariable="payload">
-    <Script>
-      <Source><![CDATA[
+		</Script>
+		<Transition to="Stop" />
+	</Step>
+	<Step icon="Default" name="Get Latest Objects" posX="360" posY="599"
+		resultVariable="payload">
+		<Script>
+			<Source><![CDATA[
 
 import java.text.*;
 import sailpoint.object.*;
@@ -670,7 +685,7 @@ workflow.put("result", "success");
 return recentlyModifiedCSVStrings;
 
       ]]></Source>
-    </Script>
-    <Transition to="Stop"/>
-  </Step>
+		</Script>
+		<Transition to="Stop" />
+	</Step>
 </Workflow>
